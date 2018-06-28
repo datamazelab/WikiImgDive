@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/mainStyle.css">-->
+    <link rel="stylesheet" href="css/c3.min.css">
+
+    <!-- jQuery, bootstrap, blob  -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+
+
+    <title>WikiImgDive:About</title>
+
+
+</head>
+<body>
+
+</body>
+<script src=js/formatHelper.js></script>
+<script>
+    generateNavigationBar($("body"));
+</script>
+<div class=row style="margin-top: 50px;margin-bottom: 50px">
+    <div class=col-2></div>
+    <div class=col-8><h1>About</h1></div>
+    <div class=col-2></div>
+</div>
+
+<div class=row>
+<div id="what" class="col-2" align="right"><h4>What:</h4></div>
+<div class="col-8">
+    <p><strong>WikiImgDive</strong> (short for Wikipedia Image Diversity) is a platform that supports qualitative analysis and exploration of image usage diversity on Wikipedia across 25 languages. This system provides multiple perspectives on diversity for concepts across languages. It is also a supplement of the publication:<u><i> The_Tower_of_Babel.jpg: Diversity of Visual Encyclopedic Knowledge Across Wikipedia Language Editions</i></u><sup>[1]</sup>  by <a href="http://www.eyesofpanda.com/">Shiqing He</a>, <a href="https://yilunlin.wordpress.com/about/">Allen Yilun Lin</a>, <a href="http://www.cond.org">Eytan Adar</a>, <a href="http://brenthecht.com/">Brent Hecht. </a>
+    </p>
+
+</div>
+    <div clas=col-2></div>
+</div>
+
+<div class="row">
+    <div id="how" class="col-2" align="right"><h4>How:</h4></div>
+    <div class="col-8">
+        <p> Using this tool, you can browse images that are used to describe a particular concept in 25 languages. For example, if you search for the concept Chocolate (in English for example), ImgDive will display images that are used in articles that describe this concept (in different languages), such as (Chocolate, English),(Chocolat, French), and (巧克力，Chinese). We used this tool to analyze concepts to determine which images are used uniquely, or by many editions. </p>
+
+        <p>We display image search results in <i>two </i> major ways：</p>
+        <ol>
+            <li>Images are displayed in a <i>sortable grid</i>, which we also refer to as the <u><i>image explorer</i></u>.</li>
+            <li> We also present a <u><i>chord diagram</i></u> that provides a high-level view of image use overlap for a particular concept.</li>
+        </ol>
+
+        <p>Currently, our tool supports query for 25 language editions, including: English, Ukrainian, Russian, Polish, Norwegian, Dutch, Japanese, Italian, German, Finnish, Swedish, Spanish, Chinese, Catalan, French, Portuguese, Czech, Danish, Hebrew, Hungarian, Indonesian, Korean, Romanian, Slovak, and Turkish.<sup>[2]</sup> The query is <i>space and case sensitive, i.e., article titles need to match <u>exactly</u> to how they appear on the Wikipedia</i>.</p>
+        <p>The tool is open-source and currently debugged with Chrome only. If you run into browser supporting issues or need additional help, you can file a request in our <a href="https://github.com/datamazelab/WikiImgDive.html"> github page</a>.</p>
+
+    </div>
+    <div class="col-2"></div>
+</div>
+<div class="row">
+    <div id="comparison" class="col-2" align="right" ><h4>Comparison:</h4></div>
+    <div class=col-8>
+        <p>There are implementation differences between the large-scale data processing procedure described in our paper and this online tool. We list these differences below:</p>
+
+        <table class="table  table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Difference</th>
+                <th scope="col">Paper Version</th>
+                <th scope="col">Online Version</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Data Source</th>
+                <td><a href="https://dumps.wikimedia.org/">Wikipedia Dump</a>
+                </td>
+                <td>
+                    <a href="https://www.mediawiki.org/wiki/API:Query">MediaWiki Query API </a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Data Format and Processing Language</th>
+                <td>SQL,XML: Processed with Python
+                </td>
+                <td>
+                    Json:Processed with Javascript
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Data Date</th>
+                <td>2017-06-01
+                </td>
+                <td>
+                    Latest date available on MediaWiki Query API
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Type of Files Processed:</th>
+                <td>'xcf', 'djvu', 'djv', 'jpg', 'jpeg', 'jpe', 'svg', 'pdf', 'gif', 'png', 'apng', 'bmp', 'tif', 'tiff'
+                </td>
+                <td>
+                    'jpg', 'jpeg', 'jpe', 'gif', 'png', 'apng', 'bmp'
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Template Image Filtering Procedure:</th>
+                <td> We used a two-stage filter that: <ol>
+                    <li>filter out any image used in Wikipedia templates pages(templates that directly inserts images in wikitext, such as [[infobox]], are not impacted),</li>
+                    <li>
+                        filter out images that have template-like usage frequency.
+                    </li>
+                </ol>
+                    Our paper <sup>[1]</sup> describes the procedure and accuracy of this filter in detail.
+                </td>
+                <td>
+                    We used a heuristic filter that eliminates images that either :
+                    <ol>
+                        <li>
+                            contain template-like words including: [wikipedia,commons]
+                        </li>
+                        <li>
+                            are smaller than 200 px in width or height.
+                        </li>
+                    </ol>
+                    We are working on displaying these filtered images if users want to varify the accuracy of this filter.
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+    <div class="col-2"></div>
+</div>
+<div class="row">
+    <div id="contact" class="col-2" align="right"><h4>Contact:</h4></div>
+    <div class="col-8">
+        <p>If you have any question/issue/suggestion regarding the tool, you can post a discussion on our <a href="https://github.com/datamazelab/WikiImgDive.html"> github page</a>, or contact <a href="https://www.si.umich.edu/people/shiqing-he"> Shiqing(Licia) He through email</a>. </p>
+        <p>[1]: To appear in <a href=http://icwsm.org/2018/program/accepted-papers/>ICWSM 2018.</a></p>
+        <p>[2]: We selected these languages to support direct comparison between image diversity and text diversity. You can read more about the comparison and rationales in our paper.</p>
+    </div>
+    <div class="col-2"></div>
+</div>
+<!--<div class="row">-->
+    <!--<div class=col-2></div>-->
+    <!--<div class=col-8></div>-->
+    <!--<div class=col-2></div>-->
+<!--</div>-->
+</html>
