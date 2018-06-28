@@ -99,10 +99,12 @@ function generateNavigationBar(selector) {
     var navInfo=["About","ImgDive  Tool","Source Code and Help"];
     var navLink=["about","tool","https://github.com/datamazelab/WikiImgDive"];//github link fo
     // var navLink=["about","tool","paperResults","https://github.com/datamazelab/WikiImgDive"];//github link fo
-    for (var i=0;i<navInfo.length;i++){
+    for (var i=0;i<navInfo.length-1;i++){
         var pg=navInfo[i];
         $("#navList").append('<li class="nav-item"><a class="dropdown-item" href="'+navLink[i]+'.html">'+pg+'</a></li>')
-    }
+    };
+    var pg=navInfo[i];
+    $("#navList").append('<li class="nav-item"><a class="dropdown-item" href="'+navLink[i]+'">'+pg+'</a></li>')
 
 }
 
